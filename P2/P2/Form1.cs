@@ -16,7 +16,40 @@ namespace P2
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            
+            string usuario = txtUsu.Text.Trim();
+            string senha = txtSen.Text.Trim();
+
+            try
+            {
+                if (!File.Exists(caminhoCsv))
+                {
+                    MessageBox.Show("Arquivo de login não encontrado!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string[] linhas = File.ReadAllLines(caminhoCsv);
+
+                bool credenciaisValidas = linhas
+                    .Skip(1)
+                    .Select(linha => linha.Split(','))
+                    .Any(campos => campos.Length >= 2 && campos[0] == usuario && campos[1] == senha);
+
+                if (credenciaisValidas)
+                {
+                    Form2 menu = new Form2();
+                    this.Hide();
+                    menu.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Usuário ou senha incorretos. Por favor, tente novamente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao verificar as credenciais: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

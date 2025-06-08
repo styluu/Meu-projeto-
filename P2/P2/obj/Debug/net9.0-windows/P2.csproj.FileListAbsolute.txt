@@ -15,3 +15,4 @@ C:\Users\stylu\source\repos\Meu-projeto-\P2\P2\obj\Debug\net9.0-windows\refint\P
 C:\Users\stylu\source\repos\Meu-projeto-\P2\P2\obj\Debug\net9.0-windows\P2.pdb
 C:\Users\stylu\source\repos\Meu-projeto-\P2\P2\obj\Debug\net9.0-windows\P2.genruntimeconfig.cache
 C:\Users\stylu\source\repos\Meu-projeto-\P2\P2\obj\Debug\net9.0-windows\ref\P2.dll
+C:\Users\stylu\source\repos\Meu-projeto-\P2\P2\obj\Debug\net9.0-windows\P2.Form2.resources
