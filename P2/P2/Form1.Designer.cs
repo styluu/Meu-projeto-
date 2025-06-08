@@ -37,9 +37,9 @@
             // 
             // btnEntrar
             // 
-            btnEntrar.Location = new Point(58, 119);
+            btnEntrar.Location = new Point(59, 119);
             btnEntrar.Name = "btnEntrar";
-            btnEntrar.Size = new Size(75, 23);
+            btnEntrar.Size = new Size(96, 23);
             btnEntrar.TabIndex = 0;
             btnEntrar.Text = "Entrar";
             btnEntrar.UseVisualStyleBackColor = true;
@@ -58,14 +58,14 @@
             // 
             txtUsu.Location = new Point(12, 27);
             txtUsu.Name = "txtUsu";
-            txtUsu.Size = new Size(168, 23);
+            txtUsu.Size = new Size(190, 23);
             txtUsu.TabIndex = 2;
             // 
             // txtSen
             // 
             txtSen.Location = new Point(12, 80);
             txtSen.Name = "txtSen";
-            txtSen.Size = new Size(168, 23);
+            txtSen.Size = new Size(190, 23);
             txtSen.TabIndex = 3;
             // 
             // lbl2
@@ -81,7 +81,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(192, 164);
+            ClientSize = new Size(214, 164);
             Controls.Add(lbl2);
             Controls.Add(txtSen);
             Controls.Add(txtUsu);
