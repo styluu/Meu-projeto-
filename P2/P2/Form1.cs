@@ -36,7 +36,7 @@ namespace P2
 
                 if (credenciaisValidas)
                 {
-                    Form2 menu = new Form2();
+                    frmMenu menu = new frmMenu();
                     this.Hide();
                     menu.ShowDialog();
                     this.Close();
