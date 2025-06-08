@@ -28,12 +28,67 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form2";
+            btnClientes = new Button();
+            btnProdutos = new Button();
+            btnPedidos = new Button();
+            btnUsuarios = new Button();
+            SuspendLayout();
+            // 
+            // btnClientes
+            // 
+            btnClientes.Location = new Point(25, 24);
+            btnClientes.Name = "btnClientes";
+            btnClientes.Size = new Size(82, 82);
+            btnClientes.TabIndex = 0;
+            btnClientes.Text = "Cadastro de Clientes";
+            btnClientes.UseVisualStyleBackColor = true;
+            // 
+            // btnProdutos
+            // 
+            btnProdutos.Location = new Point(113, 24);
+            btnProdutos.Name = "btnProdutos";
+            btnProdutos.Size = new Size(82, 82);
+            btnProdutos.TabIndex = 1;
+            btnProdutos.Text = "Cadastro de Produtos";
+            btnProdutos.UseVisualStyleBackColor = true;
+            // 
+            // btnPedidos
+            // 
+            btnPedidos.Location = new Point(201, 24);
+            btnPedidos.Name = "btnPedidos";
+            btnPedidos.Size = new Size(82, 82);
+            btnPedidos.TabIndex = 2;
+            btnPedidos.Text = "Cadastro de Pedidos";
+            btnPedidos.UseVisualStyleBackColor = true;
+            // 
+            // btnUsuarios
+            // 
+            btnUsuarios.Location = new Point(289, 24);
+            btnUsuarios.Name = "btnUsuarios";
+            btnUsuarios.Size = new Size(82, 82);
+            btnUsuarios.TabIndex = 3;
+            btnUsuarios.Text = "Cadastro de Usuários";
+            btnUsuarios.UseVisualStyleBackColor = true;
+            // 
+            // Form2
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(398, 134);
+            Controls.Add(btnUsuarios);
+            Controls.Add(btnPedidos);
+            Controls.Add(btnProdutos);
+            Controls.Add(btnClientes);
+            Name = "Form2";
+            Text = "Menu";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btnClientes;
+        private Button btnProdutos;
+        private Button btnPedidos;
+        private Button btnUsuarios;
     }
 }
