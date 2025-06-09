@@ -1,6 +1,6 @@
 ﻿namespace P2
 {
-    partial class Form2
+    partial class frmMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -42,6 +42,7 @@
             btnClientes.TabIndex = 0;
             btnClientes.Text = "Cadastro de Clientes";
             btnClientes.UseVisualStyleBackColor = true;
+            btnClientes.Click += btnClientes_Click;
             // 
             // btnProdutos
             // 
@@ -70,7 +71,7 @@
             btnUsuarios.Text = "Cadastro de Usuários";
             btnUsuarios.UseVisualStyleBackColor = true;
             // 
-            // Form2
+            // frmMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -79,7 +80,7 @@
             Controls.Add(btnPedidos);
             Controls.Add(btnProdutos);
             Controls.Add(btnClientes);
-            Name = "Form2";
+            Name = "frmMenu";
             Text = "Menu";
             ResumeLayout(false);
         }

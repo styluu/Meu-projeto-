@@ -10,20 +10,11 @@ using System.Windows.Forms;
 
 namespace P2
 {
-    public partial class frmMenu : Form
+    public partial class frmClientes : Form
     {
-        public frmMenu()
+        public frmClientes()
         {
             InitializeComponent();
-        }
-
-        private void btnClientes_Click(object sender, EventArgs e)
-        {
-            frmClientes clientes = new frmClientes();
-            this.Hide();
-            clientes.ShowDialog();
-            this.Show();
-
         }
     }
 }
