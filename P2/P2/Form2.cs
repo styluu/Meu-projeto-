@@ -34,5 +34,13 @@ namespace P2
             produtos.ShowDialog();
             this.Show();
         }
+
+        private void btnPedidos_Click(object sender, EventArgs e)
+        {
+            frmPedidos pedidos = new frmPedidos();
+            this.Hide();
+            pedidos.ShowDialog();
+            this.Show();
+        }
     }
 }
