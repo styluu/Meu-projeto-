@@ -26,28 +26,12 @@ namespace P2
             this.Show();
 
         }
-        
+
         private void btnProdutos_Click(object sender, EventArgs e)
         {
             frmProdutos produtos = new frmProdutos();
             this.Hide();
             produtos.ShowDialog();
-            this.Show();
-        }
-
-        private void btnPedidos_Click(object sender, EventArgs e)
-        {
-            frmPedidos pedidos = new frmPedidos();
-            this.Hide();
-            pedidos.ShowDialog();
-            this.Show();
-        }
-
-        private void btnUsuários_Click(object sender, EventArgs e)
-        {
-            frmUsuário usuário = new frmUsuário();
-            this.Hide();
-            usuário.ShowDialog();
             this.Show();
         }
     }

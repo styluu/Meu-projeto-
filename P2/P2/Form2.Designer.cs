@@ -52,6 +52,7 @@
             btnProdutos.TabIndex = 1;
             btnProdutos.Text = "Cadastro de Produtos";
             btnProdutos.UseVisualStyleBackColor = true;
+            btnProdutos.Click += btnProdutos_Click;
             // 
             // btnPedidos
             // 

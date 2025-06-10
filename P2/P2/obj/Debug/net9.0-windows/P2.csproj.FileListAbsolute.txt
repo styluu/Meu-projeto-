@@ -15,4 +15,8 @@ C:\Users\stylu\source\repos\Meu-projeto-\P2\P2\obj\Debug\net9.0-windows\refint\P
 C:\Users\stylu\source\repos\Meu-projeto-\P2\P2\obj\Debug\net9.0-windows\P2.pdb
 C:\Users\stylu\source\repos\Meu-projeto-\P2\P2\obj\Debug\net9.0-windows\P2.genruntimeconfig.cache
 C:\Users\stylu\source\repos\Meu-projeto-\P2\P2\obj\Debug\net9.0-windows\ref\P2.dll
-C:\Users\stylu\source\repos\Meu-projeto-\P2\P2\obj\Debug\net9.0-windows\P2.Form2.resources
+C:\Users\stylu\source\repos\Meu-projeto-\P2\P2\obj\Debug\net9.0-windows\P2.frmMenu.resources
+C:\Users\stylu\source\repos\Meu-projeto-\P2\P2\obj\Debug\net9.0-windows\P2.frmClientes.resources
+C:\Users\stylu\source\repos\Meu-projeto-\P2\P2\obj\Debug\net9.0-windows\P2.frmProdutos.resources
+C:\Users\stylu\source\repos\Meu-projeto-\P2\P2\obj\Debug\net9.0-windows\P2.frmPedidos.resources
+C:\Users\stylu\source\repos\Meu-projeto-\P2\P2\obj\Debug\net9.0-windows\P2.frmUsuário.resources
