@@ -40,7 +40,15 @@ namespace P2
             frmPedidos pedidos = new frmPedidos();
             this.Hide();
             pedidos.ShowDialog();
-            Show();
+            this.Show();
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            frmUsuário usuário = new frmUsuário();
+            this.Hide();
+            usuário.ShowDialog();
+            this.Show();
         }
     }
 }

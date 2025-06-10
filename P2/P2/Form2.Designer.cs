@@ -72,6 +72,7 @@
             btnUsuarios.TabIndex = 3;
             btnUsuarios.Text = "Cadastro de Usuários";
             btnUsuarios.UseVisualStyleBackColor = true;
+            btnUsuarios.Click += btnUsuarios_Click;
             // 
             // frmMenu
             // 
