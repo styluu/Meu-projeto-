@@ -42,5 +42,13 @@ namespace P2
             pedidos.ShowDialog();
             this.Show();
         }
+
+        private void btnUsuários_Click(object sender, EventArgs e)
+        {
+            frmUsuário usuário = new frmUsuário();
+            this.Hide();
+            usuário.ShowDialog();
+            this.Show();
+        }
     }
 }
