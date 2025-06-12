@@ -155,9 +155,37 @@ namespace P2
                 }
             }
         }
+        private void list1_DoubleClick(object sender, EventArgs e)
+        {
+            if (list1.SelectedItem != null)
+            {
+                string linhaSelecionada = list1.SelectedItem.ToString();
+                var partes = linhaSelecionada.Split('-');
+
+
+
+                if (partes.Length >= 2)
+                {
+                    txtUsu.Text = partes[0].Trim();
+                    txtSen.Text = partes[1].Trim();
+
+                    usuarioSelecionadoAtual = new UsuarioSelecionado
+                    {
+                        Nome = partes[0].Trim(),
+                        Senha = partes[1].Trim()
+                    };
+
+                    btnCadas.Text = "Atualizar";
+                }
+                else
+                {
+                    MessageBox.Show("Seleção inválida. Por favor, selecione um usuário válido.");
+                }
+            }
+        }
         private void btnEx_Click(object sender, EventArgs e)
         {
-            
+
         }
     }
 }
