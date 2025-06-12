@@ -47,9 +47,58 @@ namespace P2
 
         }
 
-        private void btnBus_Click(object sender, EventArgs e)
+        private async void btnBus_Click(object sender, EventArgs e)
         {
+            string cep = msCEP.Text.Trim();
+            if (string.IsNullOrEmpty(cep) || cep.Length != 8)
+            {
+                MessageBox.Show("Por favor, insira um CEP válido com 8 dígitos.");
+                return;
+            }
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    string url = $"https://viacep.com.br/ws/{cep}/json/";
+                    HttpResponseMessage response = await client.GetAsync(url);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string jsonResponse = await response.Content.ReadAsStringAsync();
+                        Endereco endereco = JsonSerializer.Deserialize<Endereco>(jsonResponse, new JsonSerializerOptions
+                        {
+                            PropertyNameCaseInsensitive = true
+                        });
 
+                        if (endereco != null)
+                        {
+                            txtLogra.Text = endereco.Logradouro;
+                            txtBai.Text = endereco.Bairro;
+                            txtCid.Text = endereco.Localidade;
+                            txtEst.Text = endereco.Uf;
+
+                            txtBai.ReadOnly = false;
+                            txtCid.ReadOnly = false;
+                            txtLogra.ReadOnly = false;
+                            txtEst.ReadOnly = false;
+
+                            txtNum.Focus();
+                        }
+                        else
+                        {
+                            MessageBox.Show("CEP não encontrado.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao buscar CEP. Verifique o CEP informado.");
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar CEP: " + ex.Message);
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
