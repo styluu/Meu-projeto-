@@ -47,18 +47,16 @@
             msWhats = new MaskedTextBox();
             txtNome = new TextBox();
             txtEmail = new TextBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
-            textBox7 = new TextBox();
+            txtLogra = new TextBox();
+            txtCid = new TextBox();
+            txtEst = new TextBox();
             btnBus = new Button();
             btnEx = new Button();
             btnCancelar = new Button();
             btnSalva = new Button();
-            listBox1 = new ListBox();
+            list1 = new ListBox();
+            txtBai = new TextBox();
+            txtNum = new TextBox();
             SuspendLayout();
             // 
             // lblNome
@@ -224,55 +222,26 @@
             txtEmail.Size = new Size(137, 23);
             txtEmail.TabIndex = 19;
             // 
-            // textBox1
+            // txtLogra
             // 
-            textBox1.Location = new Point(23, 222);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(208, 23);
-            textBox1.TabIndex = 20;
-            textBox1.Visible = false;
+            txtLogra.Location = new Point(290, 75);
+            txtLogra.Name = "txtLogra";
+            txtLogra.Size = new Size(100, 23);
+            txtLogra.TabIndex = 22;
             // 
-            // textBox2
+            // txtCid
             // 
-            textBox2.Location = new Point(290, 72);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 21;
+            txtCid.Location = new Point(290, 190);
+            txtCid.Name = "txtCid";
+            txtCid.Size = new Size(100, 23);
+            txtCid.TabIndex = 25;
             // 
-            // textBox3
+            // txtEst
             // 
-            textBox3.Location = new Point(290, 76);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 22;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(290, 130);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 23;
-            // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(290, 159);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(100, 23);
-            textBox5.TabIndex = 24;
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(290, 190);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(100, 23);
-            textBox6.TabIndex = 25;
-            // 
-            // textBox7
-            // 
-            textBox7.Location = new Point(290, 101);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(100, 23);
-            textBox7.TabIndex = 26;
+            txtEst.Location = new Point(290, 101);
+            txtEst.Name = "txtEst";
+            txtEst.Size = new Size(100, 23);
+            txtEst.TabIndex = 26;
             // 
             // btnBus
             // 
@@ -301,6 +270,7 @@
             btnCancelar.TabIndex = 29;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnSalva
             // 
@@ -311,31 +281,44 @@
             btnSalva.Text = "Salvar";
             btnSalva.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // list1
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(23, 235);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(338, 94);
-            listBox1.TabIndex = 31;
+            list1.FormattingEnabled = true;
+            list1.Location = new Point(23, 235);
+            list1.Name = "list1";
+            list1.Size = new Size(338, 94);
+            list1.TabIndex = 31;
+            list1.DoubleClick += list1_DoubleClick;
+            // 
+            // txtBai
+            // 
+            txtBai.Location = new Point(290, 162);
+            txtBai.Name = "txtBai";
+            txtBai.Size = new Size(100, 23);
+            txtBai.TabIndex = 32;
+            // 
+            // txtNum
+            // 
+            txtNum.Location = new Point(290, 130);
+            txtNum.Name = "txtNum";
+            txtNum.Size = new Size(100, 23);
+            txtNum.TabIndex = 33;
             // 
             // frmClientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(779, 497);
-            Controls.Add(listBox1);
+            Controls.Add(txtNum);
+            Controls.Add(txtBai);
+            Controls.Add(list1);
             Controls.Add(btnSalva);
             Controls.Add(btnCancelar);
             Controls.Add(btnEx);
             Controls.Add(btnBus);
-            Controls.Add(textBox7);
-            Controls.Add(textBox6);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtEst);
+            Controls.Add(txtCid);
+            Controls.Add(txtLogra);
             Controls.Add(txtEmail);
             Controls.Add(txtNome);
             Controls.Add(msWhats);
@@ -384,15 +367,18 @@
         private TextBox txtEmail;
         private TextBox textBox1;
         private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox txtLogra;
         private TextBox textBox4;
         private TextBox textBox5;
         private TextBox textBox6;
-        private TextBox textBox7;
+        private TextBox txtCid;
+        private TextBox txtEst;
         private Button btnBus;
         private Button btnEx;
         private Button btnCancelar;
         private Button btnSalva;
-        private ListBox listBox1;
+        private ListBox list1;
+        private TextBox txtBai;
+        private TextBox txtNum;
     }
 }

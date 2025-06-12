@@ -7,7 +7,7 @@ namespace P2
 {
     public partial class Form1 : Form
     {
-        private string caminhoCsv = "Login.csv";
+        private string caminhoCsv = "C:\\Users\\stylu\\source\\repos\\Meu-projeto-\\P2\\P2\\bin\\Debug\\net9.0-windows\\Login.csv";
 
         public Form1()
         {
@@ -50,13 +50,12 @@ namespace P2
                         if (colunas.Length >= 2 && colunas[0].Trim() == usuario && colunas[1].Trim() == senha)
                         {
                             frmMenu menu = new frmMenu(usuario);
-                            menu.ShowDialog();
+                            menu.Show();
                             this.Hide();
                             return true;
                         }
                     }
                 }
-
                 MessageBox.Show("Usuário ou senha inválidos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
 

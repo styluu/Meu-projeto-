@@ -37,9 +37,59 @@ namespace P2
         public frmClientes()
         {
             InitializeComponent();
+            carregaDados();
+            txtBai.ReadOnly = true;
+            txtCid.ReadOnly = true;
+            txtLogra.ReadOnly = true;
+            txtEst.ReadOnly = true;
+
+            list1.DoubleClick += list1_DoubleClick;
+
         }
 
         private void btnBus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void carregaDados()
+        {
+            string caminhoCSV = "Clientes.csv";
+            if (!File.Exists(caminhoCSV))
+            {
+                MessageBox.Show("Arquivo de cadastro não encontrado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            try
+            {
+                list1.Items.Clear();
+                using (StreamReader sr = new StreamReader(caminhoCSV))
+                {
+                    string linha;
+                    while ((linha = sr.ReadLine()) != null)
+                    {
+                        if (!string.IsNullOrWhiteSpace(linha))
+                        {
+                            var colunas = linha.Split(',');
+                            if (colunas.Length >= 11)
+                            {
+                                list1.Items.Add($"{colunas[0].Trim()} - {colunas[1].Trim()} - {colunas[2].Trim()} - {colunas[3].Trim()} - {colunas[4].Trim()} - {colunas[5].Trim()} - {colunas[6].Trim()} - {colunas[7].Trim()} - {colunas[8].Trim()} - {colunas[9].Trim()} - {colunas[10].Trim()}");
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar os dados: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void list1_DoubleClick(object sender, EventArgs e)
         {
 
         }

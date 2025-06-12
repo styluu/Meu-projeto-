@@ -20,3 +20,4 @@ C:\Users\stylu\source\repos\Meu-projeto-\P2\P2\obj\Debug\net9.0-windows\P2.frmCl
 C:\Users\stylu\source\repos\Meu-projeto-\P2\P2\obj\Debug\net9.0-windows\P2.frmProdutos.resources
 C:\Users\stylu\source\repos\Meu-projeto-\P2\P2\obj\Debug\net9.0-windows\P2.frmPedidos.resources
 C:\Users\stylu\source\repos\Meu-projeto-\P2\P2\obj\Debug\net9.0-windows\P2.frmUsuário.resources
+C:\Users\stylu\source\repos\Meu-projeto-\P2\P2\obj\Debug\net9.0-windows\P2.frmSenha.resources
