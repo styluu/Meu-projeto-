@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace P2
 {
@@ -56,6 +57,11 @@ namespace P2
             {
                 MessageBox.Show("Erro ao carregar dados: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void cb1_CheckedChanged(object sender, EventArgs e)
+        {
+            bool mostrar = cb1.Checked;
+            txtSen.UseSystemPasswordChar = !mostrar;
         }
 
         private void btnCadas_Click(object sender, EventArgs e)
