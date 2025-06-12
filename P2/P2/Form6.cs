@@ -117,7 +117,44 @@ namespace P2
                             }
 
                         }
-
+                        else
+                        {
+                            try
+                            {
+                                var linhas = File.ReadAllLines(caminhoCSV);
+                                foreach (var linha in linhas)
+                                {
+                                    var dados = linha.Split(',');
+                                    if (dados.Length >= 2 && dados[0].Trim().Equals(usuario, StringComparison.OrdinalIgnoreCase))
+                                    {
+                                        MessageBox.Show("Usuário já existe.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return;
+                                    }
+                                }
+                                using (var writer = new StreamWriter(caminhoCSV, true))
+                                {
+                                    writer.WriteLine($"{usuario},{senha}");
+                                    MessageBox.Show("Usuário cadastrado com sucesso!");
+                                    list1.Items.Add($"{usuario} - {senha}");
+                                    txtUsu.Clear();
+                                    txtSen.Clear();
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Erro ao cadastrar usuário: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao cadastrar usuário: " + ex.Message);
+                    return;
+                }
+            }
+        }
         private void btnEx_Click(object sender, EventArgs e)
         {
             
