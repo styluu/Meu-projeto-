@@ -185,7 +185,11 @@ namespace P2
         }
         private void btnEx_Click(object sender, EventArgs e)
         {
-
+            if (usuarioSelecionadoAtual == null)
+            {
+                MessageBox.Show("Nenhum usuário selecionado para exclusão.");
+                return;
+            }
         }
     }
 }
