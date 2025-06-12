@@ -98,6 +98,7 @@
             btnCadas.TabIndex = 6;
             btnCadas.Text = "Cadastrar";
             btnCadas.UseVisualStyleBackColor = true;
+            btnCadas.Click += btnCadas_Click;
             // 
             // btnEx
             // 
@@ -107,6 +108,7 @@
             btnEx.TabIndex = 7;
             btnEx.Text = "Excluir";
             btnEx.UseVisualStyleBackColor = true;
+            btnEx.Click += btnEx_Click;
             // 
             // list1
             // 
