@@ -42,7 +42,7 @@
             // lblUsu
             // 
             lblUsu.AutoSize = true;
-            lblUsu.Location = new Point(56, 36);
+            lblUsu.Location = new Point(12, 9);
             lblUsu.Name = "lblUsu";
             lblUsu.Size = new Size(50, 15);
             lblUsu.TabIndex = 0;
@@ -51,7 +51,7 @@
             // lblSen
             // 
             lblSen.AutoSize = true;
-            lblSen.Location = new Point(56, 95);
+            lblSen.Location = new Point(12, 68);
             lblSen.Name = "lblSen";
             lblSen.Size = new Size(42, 15);
             lblSen.TabIndex = 1;
@@ -60,7 +60,7 @@
             // lbl3
             // 
             lbl3.AutoSize = true;
-            lbl3.Location = new Point(56, 179);
+            lbl3.Location = new Point(12, 134);
             lbl3.Name = "lbl3";
             lbl3.Size = new Size(123, 15);
             lbl3.TabIndex = 2;
@@ -68,14 +68,14 @@
             // 
             // txtUsu
             // 
-            txtUsu.Location = new Point(56, 54);
+            txtUsu.Location = new Point(12, 27);
             txtUsu.Name = "txtUsu";
             txtUsu.Size = new Size(134, 23);
             txtUsu.TabIndex = 3;
             // 
             // txtSen
             // 
-            txtSen.Location = new Point(56, 113);
+            txtSen.Location = new Point(12, 86);
             txtSen.Name = "txtSen";
             txtSen.Size = new Size(134, 23);
             txtSen.TabIndex = 4;
@@ -83,7 +83,7 @@
             // cb1
             // 
             cb1.AutoSize = true;
-            cb1.Location = new Point(196, 115);
+            cb1.Location = new Point(165, 25);
             cb1.Name = "cb1";
             cb1.Size = new Size(102, 19);
             cb1.TabIndex = 5;
@@ -92,18 +92,18 @@
             // 
             // btnCadas
             // 
-            btnCadas.Location = new Point(313, 145);
+            btnCadas.Location = new Point(192, 50);
             btnCadas.Name = "btnCadas";
-            btnCadas.Size = new Size(75, 23);
+            btnCadas.Size = new Size(75, 33);
             btnCadas.TabIndex = 6;
             btnCadas.Text = "Cadastrar";
             btnCadas.UseVisualStyleBackColor = true;
             // 
             // btnEx
             // 
-            btnEx.Location = new Point(313, 179);
+            btnEx.Location = new Point(192, 89);
             btnEx.Name = "btnEx";
-            btnEx.Size = new Size(75, 23);
+            btnEx.Size = new Size(75, 33);
             btnEx.TabIndex = 7;
             btnEx.Text = "Excluir";
             btnEx.UseVisualStyleBackColor = true;
@@ -111,16 +111,16 @@
             // list1
             // 
             list1.FormattingEnabled = true;
-            list1.Location = new Point(77, 297);
+            list1.Location = new Point(12, 152);
             list1.Name = "list1";
-            list1.Size = new Size(120, 94);
+            list1.Size = new Size(288, 94);
             list1.TabIndex = 8;
             // 
             // frmUsuário
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(314, 267);
             Controls.Add(list1);
             Controls.Add(btnEx);
             Controls.Add(btnCadas);
