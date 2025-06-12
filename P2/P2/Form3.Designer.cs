@@ -280,6 +280,7 @@
             btnSalva.TabIndex = 30;
             btnSalva.Text = "Salvar";
             btnSalva.UseVisualStyleBackColor = true;
+            btnSalva.Click += btnSalva_Click;
             // 
             // list1
             // 

@@ -171,5 +171,128 @@ namespace P2
 
             }
         }
+
+        private void btnSalva_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtNome.Text) || string.IsNullOrEmpty(msCPF.Text) || string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(msCEP.Text) || string.IsNullOrEmpty(txtLogra.Text) || string.IsNullOrEmpty(txtNum.Text) || string.IsNullOrEmpty(txtBai.Text) || string.IsNullOrEmpty(txtCid.Text) || string.IsNullOrEmpty(txtEst.Text) || string.IsNullOrEmpty(msTel.Text) || string.IsNullOrEmpty(msWhats.Text))
+            {
+                MessageBox.Show("Por favor, preencha todos os campos obrigatórios.");
+                return;
+            }
+            else
+            {
+                try
+                {
+                    string caminhoCSV = "cadastroClientes.csv";
+
+                    if (btnSalva.Text == "Atualizar" && clienteSelecionadoAtual != null)
+                    {
+                        try
+                        {
+                            string linhaSelecionada = list1.SelectedItem.ToString();
+                            string clienteOriginal = linhaSelecionada.Split('-')[0].Trim();
+
+                            string cpf = msCPF.Text.Trim();
+                            using (StreamReader sr = new StreamReader(caminhoCSV))
+                            {
+                                string linha;
+                                while ((linha = sr.ReadLine()) != null)
+                                {
+                                    var colunas = linha.Split(',');
+                                    if (colunas.Length > 1 && colunas[1].Trim() == cpf)
+                                    {
+                                        MessageBox.Show("CPF já cadastrado.");
+                                        return;
+                                    }
+                                }
+
+                            }
+
+                            string[] linhas = File.ReadAllLines(caminhoCSV);
+                            for (int i = 0; i < linhas.Length; i++)
+                            {
+                                var colunas = linhas[i].Split(',');
+                                if (colunas.Length > 1 && colunas[1].Trim() == clienteSelecionadoAtual.cpf)
+                                {
+                                    linhas[i] = $"{txtNome.Text.Trim()},{msCPF.Text.Trim()},{txtEmail.Text.Trim()},{msCEP.Text.Trim()},{txtLogra.Text.Trim()},{txtNum.Text.Trim()},{txtBai.Text.Trim()},{txtCid.Text.Trim()},{txtEst.Text.Trim()},{msTel.Text.Trim()},{msWhats.Text.Trim()}";
+                                    break;
+                                }
+                            }
+                            File.WriteAllLines(caminhoCSV, linhas);
+                            MessageBox.Show("Dados atualizados com sucesso!");
+                            carregaDados();
+                            txtNome.Clear();
+                            msCPF.Clear();
+                            txtEmail.Clear();
+                            msCEP.Clear();
+                            txtLogra.Clear();
+                            txtNum.Clear();
+                            txtBai.Clear();
+                            txtCid.Clear();
+                            txtEst.Clear();
+                            msTel.Clear();
+                            msWhats.Clear();
+                            clienteSelecionadoAtual = null;
+                            btnSalva.Text = "Salvar";
+                            list1.SelectedItem = null;
+                            txtNome.Focus();
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Erro ao atualizar os dados: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        try
+                        {
+                            string caminho = "cadastroClientes.csv";
+                            if (!File.Exists(caminho))
+                            {
+                                MessageBox.Show("Arquivo de cadastro não encontrado. Criando novo arquivo.");
+                                return;
+                            }
+                            else
+                            {
+                                string cpf = msCPF.Text.Trim();
+                                using (StreamReader sr = new StreamReader(caminho))
+                                {
+                                    string linha;
+                                    while ((linha = sr.ReadLine()) != null)
+                                    {
+                                        var colunas = linha.Split(',');
+                                        if (colunas.Length > 1 && colunas[1].Trim() == cpf)
+                                        {
+                                            MessageBox.Show("CPF já cadastrado.");
+                                            return;
+                                        }
+                                    }
+
+                                }
+                                using (StreamWriter sw = new StreamWriter(caminho, true))
+                                {
+                                    string linha = $"{txtNome.Text.Trim()},{msCPF.Text.Trim()},{txtEmail.Text.Trim()},{msCEP.Text.Trim()},{txtLogra.Text.Trim()},{txtNum.Text.Trim()},{txtBai.Text.Trim()},{txtCid.Text.Trim()},{txtEst.Text.Trim()},{msTel.Text.Trim()},{msWhats.Text.Trim()}";
+                                    sw.WriteLine(linha);
+                                    MessageBox.Show("Dados salvos com sucesso!");
+                                }
+                                carregaDados();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Erro ao salvar os dados: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao salvar os dados. Verifique as informações e tente novamente.");
+                }
+            }
+        }
     }
 }
