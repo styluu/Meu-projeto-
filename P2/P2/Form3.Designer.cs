@@ -282,6 +282,7 @@
             btnBus.TabIndex = 27;
             btnBus.Text = "Buscar CEP";
             btnBus.UseVisualStyleBackColor = true;
+            btnBus.Click += btnBus_Click;
             // 
             // btnEx
             // 
