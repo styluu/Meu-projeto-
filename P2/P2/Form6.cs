@@ -73,7 +73,7 @@ namespace P2
                 try
                 {
 
-                    string caminhoCSV = "usuarios.csv";
+                    string caminhoCSV = "Login.csv";
                     if (!File.Exists(caminhoCSV))
                     {
                         MessageBox.Show("Arquivo de usuários não encontrado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -212,7 +212,29 @@ namespace P2
                                 break;
                             }
                         }
-                    }   
 
+                        if (removido)
+                        {
+                            File.WriteAllLines(caminhoCSV, linhas);
+                            MessageBox.Show("Usuário excluído com sucesso.");
+                            CarregarDados();
+                            txtUsu.Clear();
+                            txtSen.Clear();
+                            btnCadas.Text = "Cadastrar";
+                            usuarioSelecionadoAtual = null;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Usuário não encontrado para exclusão.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro ao excluir usuário: " + ex.Message);
+                    }
+                }
+            }
+        }
     }
+
 }
