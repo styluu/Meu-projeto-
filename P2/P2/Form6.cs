@@ -190,6 +190,12 @@ namespace P2
                 MessageBox.Show("Nenhum usuário selecionado para exclusão.");
                 return;
             }
-        }
+            else
+            {
+                var confirmar = MessageBox.Show($"Deseja realmente excluir o usuário '{usuarioSelecionadoAtual.Nome}'?", "Confirmar exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+
+            }
+
     }
 }
