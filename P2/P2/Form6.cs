@@ -35,8 +35,19 @@ namespace P2
                 MessageBox.Show("Preencha todos os campos.");
                 return;
             }
-            
-        }
+            else
+            {
+                try
+                {
+
+                    string caminhoCSV = "usuarios.csv";
+                    if (!File.Exists(caminhoCSV))
+                    {
+                        MessageBox.Show("Arquivo de usuários não encontrado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                }
 
         private void btnEx_Click(object sender, EventArgs e)
         {
