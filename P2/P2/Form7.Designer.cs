@@ -68,7 +68,7 @@
             Controls.Add(lblNova);
             Controls.Add(btnSalvar);
             Name = "frmSenha";
-            Text = "Senha:";
+            Text = "Senha";
             ResumeLayout(false);
             PerformLayout();
         }
