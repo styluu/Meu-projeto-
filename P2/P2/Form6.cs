@@ -194,8 +194,25 @@ namespace P2
             {
                 var confirmar = MessageBox.Show($"Deseja realmente excluir o usuário '{usuarioSelecionadoAtual.Nome}'?", "Confirmar exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+                if (confirmar == DialogResult.Yes)
+                {
+                    try
+                    {
+                        string caminhoCSV = "Login.csv";
+                        var linhas = File.ReadAllLines(caminhoCSV).ToList();
+                        bool removido = false;
 
-            }
+                        for (int i = 0; i < linhas.Count; i++)
+                        {
+                            var dados = linhas[i].Split(',');
+                            if (dados.Length >= 2 && dados[0].Trim().Equals(usuarioSelecionadoAtual.Nome, StringComparison.OrdinalIgnoreCase))
+                            {
+                                linhas.RemoveAt(i);
+                                removido = true;
+                                break;
+                            }
+                        }
+                    }   
 
     }
 }
