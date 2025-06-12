@@ -91,7 +91,36 @@ namespace P2
 
         private void list1_DoubleClick(object sender, EventArgs e)
         {
+            if (list1.SelectedItem != null)
+            {
+                string[] dados = list1.SelectedItem.ToString().Split('-');
+                if (dados.Length >= 11)
+                {
+                    txtNome.Text = dados[0].Trim();
+                    msCPF.Text = dados[1].Trim();
+                    txtEmail.Text = dados[2].Trim();
+                    msCEP.Text = dados[3].Trim();
+                    txtLogra.Text = dados[4].Trim();
+                    txtNum.Text = dados[5].Trim();
+                    txtBai.Text = dados[6].Trim();
+                    txtCid.Text = dados[7].Trim();
+                    txtEst.Text = dados[8].Trim();
+                    msTel.Text = dados[9].Trim();
+                    msWhats.Text = dados[10].Trim();
+                    clienteSelecionadoAtual = new ClienteSelecionado
+                    {
+                        cpf = msCPF.Text.Trim()
+                    };
+                    btnSalva.Text = "Atualizar";
+                }
+                else
+                {
+                    MessageBox.Show("Selecione um cliente da lista para editar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
+
+            }
         }
     }
 }
