@@ -12,9 +12,11 @@ namespace P2
 {
     public partial class frmUsuário : Form
     {
-        public frmUsuário()
+        public string Usuario { get; set; }
+        public frmUsuário(string usuario)
         {
             InitializeComponent();
+            Usuario = usuario;
         }
     }
 }

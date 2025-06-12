@@ -13,9 +13,11 @@ namespace P2
 {
     public partial class frmMenu : Form
     {
-        public frmMenu()
+        public string Usuario { get; set; }
+        public frmMenu(string usuario)
         {
             InitializeComponent();
+            Usuario = usuario;
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
@@ -45,9 +47,24 @@ namespace P2
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            frmUsuário usuário = new frmUsuário();
+            if (Usuario == "ADMIN")
+            {
+                frmUsuário usuarios = new frmUsuário(Usuario);
+                this.Hide();
+                usuarios.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Apenas usuários administradores podem acessar.", "Acesso Negado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnMudar_Click(object sender, EventArgs e)
+        {
+            frmSenha senha = new frmSenha(Usuario);
             this.Hide();
-            usuário.ShowDialog();
+            senha.ShowDialog();
             this.Show();
         }
     }

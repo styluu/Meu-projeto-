@@ -32,11 +32,12 @@
             btnProdutos = new Button();
             btnPedidos = new Button();
             btnUsuarios = new Button();
+            btnMudar = new Button();
             SuspendLayout();
             // 
             // btnClientes
             // 
-            btnClientes.Location = new Point(25, 24);
+            btnClientes.Location = new Point(25, 12);
             btnClientes.Name = "btnClientes";
             btnClientes.Size = new Size(82, 82);
             btnClientes.TabIndex = 0;
@@ -46,7 +47,7 @@
             // 
             // btnProdutos
             // 
-            btnProdutos.Location = new Point(113, 24);
+            btnProdutos.Location = new Point(113, 12);
             btnProdutos.Name = "btnProdutos";
             btnProdutos.Size = new Size(82, 82);
             btnProdutos.TabIndex = 1;
@@ -56,7 +57,7 @@
             // 
             // btnPedidos
             // 
-            btnPedidos.Location = new Point(201, 24);
+            btnPedidos.Location = new Point(201, 12);
             btnPedidos.Name = "btnPedidos";
             btnPedidos.Size = new Size(82, 82);
             btnPedidos.TabIndex = 2;
@@ -66,7 +67,7 @@
             // 
             // btnUsuarios
             // 
-            btnUsuarios.Location = new Point(289, 24);
+            btnUsuarios.Location = new Point(289, 12);
             btnUsuarios.Name = "btnUsuarios";
             btnUsuarios.Size = new Size(82, 82);
             btnUsuarios.TabIndex = 3;
@@ -74,11 +75,22 @@
             btnUsuarios.UseVisualStyleBackColor = true;
             btnUsuarios.Click += btnUsuarios_Click;
             // 
+            // btnMudar
+            // 
+            btnMudar.Location = new Point(148, 100);
+            btnMudar.Name = "btnMudar";
+            btnMudar.Size = new Size(97, 23);
+            btnMudar.TabIndex = 4;
+            btnMudar.Text = "Mudar a senha";
+            btnMudar.UseVisualStyleBackColor = true;
+            btnMudar.Click += btnMudar_Click;
+            // 
             // frmMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(398, 134);
+            Controls.Add(btnMudar);
             Controls.Add(btnUsuarios);
             Controls.Add(btnPedidos);
             Controls.Add(btnProdutos);
@@ -94,5 +106,6 @@
         private Button btnProdutos;
         private Button btnPedidos;
         private Button btnUsuarios;
+        private Button btnMudar;
     }
 }

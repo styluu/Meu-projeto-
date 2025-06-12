@@ -7,11 +7,12 @@ namespace P2
 {
     public partial class Form1 : Form
     {
-        private string caminhoCsv = "C:\\Users\\stylu\\source\\repos\\Meu-projeto-\\P2\\P2\\Login.csv";
+        private string caminhoCsv = "Login.csv";
 
         public Form1()
         {
             InitializeComponent();
+            txtSen.UseSystemPasswordChar = true;
         }
 
         private void btnEntrar_Click(object sender, EventArgs e)
@@ -19,36 +20,51 @@ namespace P2
             string usuario = txtUsu.Text.Trim();
             string senha = txtSen.Text.Trim();
 
+            if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(senha))
+            {
+                MessageBox.Show("Preencha todos os campos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                ValidarCSV(usuario, senha);
+            }
+        }
+
+        private bool ValidarCSV(string usuario, string senha)
+        {
             try
             {
-                if (!File.Exists(caminhoCsv))
+                string caminhoCSV = "Login.csv";
+
+                if (!File.Exists(caminhoCSV))
                 {
-                    MessageBox.Show("Arquivo de login não encontrado!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    MessageBox.Show("Arquivo de usuários não encontrado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                using (var reader = new StreamReader(caminhoCSV))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        var linha = reader.ReadLine();
+                        var colunas = linha.Split(',');
+                        if (colunas.Length >= 2 && colunas[0].Trim() == usuario && colunas[1].Trim() == senha)
+                        {
+                            frmMenu menu = new frmMenu(usuario);
+                            menu.ShowDialog();
+                            this.Hide();
+                            return true;
+                        }
+                    }
                 }
 
-                string[] linhas = File.ReadAllLines(caminhoCsv);
+                MessageBox.Show("Usuário ou senha inválidos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
 
-                bool credenciaisValidas = linhas
-                    .Skip(1)
-                    .Select(linha => linha.Split(','))
-                    .Any(campos => campos.Length >= 2 && campos[0] == usuario && campos[1] == senha);
-
-                if (credenciaisValidas)
-                {
-                    frmMenu menu = new frmMenu();
-                    this.Hide();
-                    menu.ShowDialog();
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Usuário ou senha incorretos. Por favor, tente novamente.", "Erro de Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao verificar as credenciais: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro ao validar usuário: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
     }
