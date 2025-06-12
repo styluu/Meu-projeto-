@@ -24,6 +24,39 @@ namespace P2
             public string Nome { get; set; }
             public string Senha { get; set; }
         }
+        public void CarregarDados()
+        {
+            try
+            {
+                string caminhoCSV = "Login.csv";
+                if (!File.Exists(caminhoCSV))
+                {
+                    MessageBox.Show("Arquivo de usuários não encontrado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                using (var reader = new StreamReader(caminhoCSV))
+                {
+                    list1.Items.Clear();
+                    while (!reader.EndOfStream)
+                    {
+                        var linha = reader.ReadLine();
+                        if (!string.IsNullOrWhiteSpace(linha))
+                        {
+                            var colunas = linha.Split(',');
+                            if (colunas.Length >= 2)
+                            {
+                                list1.Items.Add($"{colunas[0].Trim()} - {colunas[1].Trim()}");
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar dados: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void btnCadas_Click(object sender, EventArgs e)
         {
@@ -46,8 +79,44 @@ namespace P2
                         MessageBox.Show("Arquivo de usuários não encontrado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+                    else
+                    {
+                        if (btnCadas.Text == "Atualizar" && list1.SelectedItem != null)
+                        {
+                            try
+                            {
 
-                }
+                                string linhaSelecionada = list1.SelectedItem.ToString();
+                                string usuarioOriginal = linhaSelecionada.Split('-')[0].Trim();
+
+                                var linhas = File.ReadAllLines(caminhoCSV).ToList();
+
+                                for (int i = 0; i < linhas.Count; i++)
+                                {
+                                    var dados = linhas[i].Split(',');
+                                    if (dados[0].Trim().Equals(usuarioOriginal, StringComparison.OrdinalIgnoreCase))
+                                    {
+                                        linhas[i] = $"{usuario},{senha}";
+                                        break;
+                                    }
+                                }
+
+                                File.WriteAllLines(caminhoCSV, linhas);
+
+                                MessageBox.Show("Usuário atualizado com sucesso!");
+
+
+                                txtUsu.Clear();
+                                txtSen.Clear();
+                                btnCadas.Text = "Cadastrar";
+                                CarregarDados();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Erro ao atualizar usuário: " + ex.Message);
+                            }
+
+                        }
 
         private void btnEx_Click(object sender, EventArgs e)
         {
